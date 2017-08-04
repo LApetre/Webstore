@@ -1,0 +1,8 @@
+﻿/* You can add global styles to this file, and also import other style files */
+table{
+  padding:10px;
+  width:inherit;
+}
+td{
+  padding:10px;
+}

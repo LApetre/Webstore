@@ -1,0 +1,32 @@
+﻿<h1>Edit or add a new product</h1>
+
+<table>
+  <tr>
+    <td>
+      Id:
+      <span>
+        {{product.Id}}
+        </span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Name:
+      <input type="text" name="Name" [(ngModel)]="product.Name" (change)="refreshReady()" />
+    </td>
+
+    <td>
+      Price:
+      <input type="text" name="Price" [(ngModel)]="product.ListPrice" (change)="refreshReady()" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button (click)="addToDB()"> Save </button>
+      <p *ngIf="ready"> Product was saved! </p>
+    </td>
+
+  </tr>
+</table>
+
+<a [routerLink]="['/products']">Productlist</a>

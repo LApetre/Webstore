@@ -1,0 +1,57 @@
+﻿<h1>Products</h1>
+
+<a routerLink="/product/new">Add new product</a>
+
+<div id="filterSection">
+  Name starts with: 
+  <input type="text" [(ngModel)]="filterValue" />
+  Price from:
+  <input type="number" [(ngModel)]="discStart" />
+  to:
+  <input type="number" [(ngModel)]="discEnd" />
+</div>
+<button (click)="apply()">Apply Filter </button>
+
+
+<div class="table-responsive">
+<table class="table-striped table-bordered ">
+  <tr>
+    <th>
+
+    </th>
+    <th>
+
+    </th>
+  <th> Name </th> <th> Price</th>
+  </tr>
+  <tr *ngFor="let product of productList">
+    
+  <td>
+    
+    <a [routerLink]="['/product/',product.Id]">Edit</a>
+   <!-- <button type="button" class="btn btn-link" ng-click="view(customer.Id)">Edit</button>Edit</a>-->
+    </td>
+  <td> <button (click)="delete(product.Id)"> Delete </button>
+
+  <td>
+      {{product.Name}}
+    </td>
+    <td>
+      {{product.ListPrice}}
+    </td>
+    </tr></table>
+
+  <button (click)="prev()" [disabled]="pageNumber==0">Prev</button>
+  Page {{pageNumber+1}} / {{maxPages}}
+  <button (click)="next()" [disabled]="pageNumber>=(maxPages-1)">Next</button>
+</div>
+
+<div id="page-section">
+  <label for="PageSize">Size </label>
+  <select [(ngModel)]="pageSize">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+  </select>
+  <button (click)="refresh()">Get Page</button>
+</div>

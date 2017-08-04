@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{52F31BDA-7C97-481C-83DB-B2807CB5C7F5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebStorm.Frontend</RootNamespace>
+    <AssemblyName>WebStorm.Frontend</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <TypeScriptCompile Include="src\app\orders\order-details.component.ts" />
+    <Content Include="src\app\orders\order-line-form.component.html" />
+    <TypeScriptCompile Include="src\app\orders\order-line-form.component.ts" />
+    <TypeScriptCompile Include="src\app\orders\order-list.component.ts" />
+    <TypeScriptCompile Include="src\app\orders\order.ts" />
+    <TypeScriptCompile Include="src\app\PageData.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="e2e\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="e2e\app.po.ts" />
+    <TypeScriptCompile Include="src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\customers\customer-details.component.ts" />
+    <TypeScriptCompile Include="src\app\customers\Customer.ts" />
+    <TypeScriptCompile Include="src\app\customers\customers-list.component.ts" />
+    <TypeScriptCompile Include="src\app\home\home.component.ts" />
+    <TypeScriptCompile Include="src\app\products\product-details.component.ts" />
+    <TypeScriptCompile Include="src\app\products\product-list.component.ts" />
+    <TypeScriptCompile Include="src\app\products\product.ts" />
+    <TypeScriptCompile Include="src\app\services\OrdersService.ts" />
+    <TypeScriptCompile Include="src\app\services\ProductsService.ts" />
+    <TypeScriptCompile Include="src\app\services\CustomersService.ts" />
+    <TypeScriptCompile Include="src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="src\environments\environment.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\polyfills.ts" />
+    <TypeScriptCompile Include="src\test.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+    <None Include="angular-cli.json" />
+    <None Include="e2e\tsconfig.json" />
+    <None Include="package.json" />
+    <None Include="proxy.conf.json" />
+    <None Include="README.md" />
+    <None Include="src\assets\.gitkeep" />
+    <None Include="src\bootstrap\css\bootstrap-grid.css.map" />
+    <None Include="src\bootstrap\css\bootstrap-grid.min.css.map" />
+    <None Include="src\bootstrap\css\bootstrap-reboot.css.map" />
+    <None Include="src\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <None Include="src\bootstrap\css\bootstrap.css.map" />
+    <None Include="src\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="src\tsconfig.json" />
+    <None Include="tslint.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="karma.conf.js" />
+    <Content Include="protractor.conf.js" />
+    <Content Include="src\app\app.component.css" />
+    <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\customers\customer-details.component.html" />
+    <Content Include="src\app\customers\customers-list.component.html" />
+    <Content Include="src\app\home\home.component.html" />
+    <Content Include="src\app\orders\order-details.component.html" />
+    <Content Include="src\app\orders\order-list.component.html" />
+    <Content Include="src\app\products\product-details.component.html" />
+    <Content Include="src\app\products\product-list.component.html" />
+    <Content Include="src\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="src\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="src\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="src\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="src\bootstrap\css\bootstrap.css" />
+    <Content Include="src\bootstrap\css\bootstrap.min.css" />
+    <Content Include="src\bootstrap\js\bootstrap.js" />
+    <Content Include="src\bootstrap\js\bootstrap.min.js" />
+    <Content Include="src\favicon.ico" />
+    <Content Include="src\index.html" />
+    <Content Include="src\styles.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\app\reports\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

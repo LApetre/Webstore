@@ -1,0 +1,22 @@
+﻿<div id="filterSection">
+  <h5> Add or Edit OrderLine </h5>
+  <!--  <select [(ngModel)]="customer.Id">
+       *ngIf="ready"
+      -->
+  <select [(ngModel)]="orderline.Product">
+    <option *ngFor="let prod of productList " [value]="prod"> {{prod.Name}} </option>
+  </select>
+  Price:
+  <input type="number" [(ngModel)]="orderline.Price" (change)="calculatePrices()"/>
+  Quantity:
+  <input type="number" [(ngModel)]="orderline.Quantity" (change)="calculatePrices()"/>
+  <button (click)="done()"> Done</button>
+  <p>
+    Total without discount:
+    <span> {{orderline.TotalPriceWithoutDiscount}} </span>
+  </p>
+  <p>
+    Total with discount:
+    <span> {{orderline.TotalPrice}} </span>
+  </p>
+</div>

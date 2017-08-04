@@ -1,0 +1,56 @@
+﻿<h1>Customers</h1>
+
+<a routerLink="/customers/new">Add new customer</a>
+
+<div id="filterSection">
+  Name starts with: 
+  <input type="text" [(ngModel)]="filterValue" />
+  Discount starts at: 
+  <input type="number" [(ngModel)]="discStart" />
+  <input type="number" [(ngModel)]="discEnd" />
+</div>
+<button (click)="apply()">Apply Filter </button>
+
+
+<div class="table-responsive">
+<table class="table-striped table-bordered ">
+  <tr>
+    <th>
+
+    </th>
+    <th>
+
+    </th>
+  <th> Name </th> <th> discount</th>
+  </tr>
+  <tr *ngFor="let customer of customerList">
+    
+  <td>
+    
+    <a [routerLink]="['/customers/',customer.Id]">Edit</a>
+   <!-- <button type="button" class="btn btn-link" ng-click="view(customer.Id)">Edit</button>Edit</a>-->
+    </td>
+  <td> <button (click)="delete(customer.Id)"> Delete </button>
+<!--<p *ngIf="ready"> Customer was deleted! </p>-->
+  <td>
+      {{customer.Name}}
+    </td>
+    <td>
+      {{customer.DiscountPercent}}
+    </td>
+    </tr></table>
+
+  <button (click)="prev()" [disabled]="pageNumber==0">Prev</button>
+  Page {{pageNumber+1}} / {{maxPages}} 
+  <button (click)="next()" [disabled]="pageNumber>=(maxPages-1)">Next</button>
+</div>
+
+<div id="page-section">
+  <label for="PageSize">Size </label>
+  <select [(ngModel)]="pageSize">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+  </select>
+  <button (click)="refresh()">Get Page</button>
+</div>

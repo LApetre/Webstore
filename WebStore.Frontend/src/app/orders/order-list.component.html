@@ -1,0 +1,68 @@
+﻿<h1>Orders</h1>
+
+<a routerLink="/order/new">Add new order</a>
+
+<div id="filterSection">
+
+  Customer
+  <select [(ngModel)]="customerId">
+    <option *ngFor="let c of customerList " [value]="c.Id"> {{c.Name}} </option>
+  </select>
+  Discount from:
+  <input type="number" [(ngModel)]="discStart" />
+  to:
+  <input type="number" [(ngModel)]="discEnd" />
+  OrderDate from:
+  <input type="date" [(ngModel)]="from" />
+  to:
+  <input type="date" [(ngModel)]="to" />
+  <button (click)="refresh()">Apply Filter </button>
+</div>
+
+
+
+<div class="table-responsive">
+<table class="table-striped table-bordered ">
+  <tr>
+Actions
+    <th>
+
+    </th>
+  <th> OrderId </th> <th> Customer</th><th>Discount Percent</th> <th>Order date</th>
+  </tr>
+  <tr *ngFor="let order of orderList">
+    
+  <td>
+    
+    <a [routerLink]="['/order/',order.Id]">Edit</a>
+   <!-- <button type="button" class="btn btn-link" ng-click="view(customer.Id)">Edit</button>Edit</a>-->
+    </td>
+  <td> <button (click)="delete(order.Id)"> Delete </button>
+
+  <td>
+      {{order.Id}}
+    </td>
+    <td>
+      {{order.Customer.Name}}
+    </td>
+    <td>
+      {{order.DiscountPercent}}
+    </td>
+    <td>
+      {{order.OrderDate.slice(0,10)}}
+    </td>
+
+    </tr></table>
+
+  <button (click)="prev()" [disabled]="pageNumber==0">Prev</button>
+  <button (click)="next()" [disabled]="pageNumber>=(maxPages-1)">Next</button>
+</div>
+
+<div id="page-section">
+  <label for="PageSize">Size </label>
+  <select [(ngModel)]="pageSize">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+  </select>
+</div>

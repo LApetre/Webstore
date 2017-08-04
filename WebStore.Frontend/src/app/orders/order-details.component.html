@@ -1,0 +1,79 @@
+﻿<h1>Edit or add a new order</h1>
+
+<div id="filterSection">
+  Customer
+   <select [(ngModel)]="customer" (change)="refdisc()" >
+    <option *ngFor="let cst of customerList " [ngValue]="cst"> {{cst.Name}} </option>
+  </select>
+  Discount:
+  <input type="number" [(ngModel)]="order.DiscountPercent" />
+  <button (click)="calculatePrices()"> Calculate Prices </button>
+    <span> OrderId is: {{order.Id}}</span>
+    <span> OrderDate is: {{order.OrderDate}}</span>
+</div>
+
+
+
+<div class="table-responsive">
+  <table class="table-striped table-bordered ">
+    <tr>
+      <th>Actions</th>
+      <th> ProductName </th>
+      <th> Price</th>
+      <th>Quantity</th>
+      <th>TotalWithoutDiscount</th>
+      <th>Total</th>
+    </tr>
+    <tr *ngFor="let orderline of order.OrderLines">
+
+      <td> <button (click)="edit(orderline)"> Edit </button>
+ <button (click)="delete(orderline.Id)"> Delete </button>
+      </td>
+      <td>
+        {{orderline.Product.Name}}
+      </td>
+      <td>
+        {{orderline.Price}}
+      </td>
+      <td>
+        {{orderline.Quantity}}
+      </td>
+      <td>
+        {{orderline.TotalPriceWithoutDiscount}}
+      </td>
+      <td>
+        {{orderline.TotalPrice}}
+      </td>
+    </tr>
+
+  </table>
+
+</div>
+
+
+<button (click)="addToDB()">Save</button>
+<button (click)="add()"> Add Line </button>
+<!--<order-line-form [orderline_]="orderlineCurrent" [product_]="productCurrent" *ngIf="ready" > </order-line-form>-->
+<div id="addline" *ngIf="ready">
+  <h5> Add or Edit OrderLine </h5>
+  <!--  <select [(ngModel)]="customer.Id">
+       *ngIf="ready"
+      (change)="productChange()"
+      -->
+  <select [(ngModel)]="orderlineCurrent.Product" (change)="productChange()" >
+    <option *ngFor="let prod of productList " [ngValue]="prod"> {{prod.Name}} </option>
+  </select>
+  Price:
+  <input type="number" [(ngModel)]="orderlineCurrent.Price"  />
+  Quantity:
+  <input type="number" [(ngModel)]="orderlineCurrent.Quantity"  />
+  <button (click)="done()"> Done</button>
+  <p>
+    Total without discount:
+    <span> {{orderlineCurrent.TotalPriceWithoutDiscount}} </span>
+  </p>
+  <p>
+    Total with discount:
+    <span> {{orderlineCurrent.TotalPrice}} </span>
+  </p>
+</div>

@@ -1,0 +1,32 @@
+﻿<h1>Edit or add a new customer</h1>
+
+<table>
+  <tr>
+    <td>
+      Id:
+      <span>
+        {{customer.Id}}
+        </span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Name:
+      <input type="text" name="Name" [(ngModel)]="customer.Name" (change)="refreshReady()" />
+    </td>
+
+    <td>
+      Discount:
+      <input type="text" name="Discount" [(ngModel)]="customer.DiscountPercent" (change)="refreshReady()" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button (click)="addToDB()"> Save </button>
+      <p *ngIf="ready"> Customer was saved! </p>
+    </td>
+
+  </tr>
+</table>
+
+<a [routerLink]="['/customers']">Customerlist</a>
